@@ -9,7 +9,12 @@ import { CaretDownIcon } from "@radix-ui/react-icons";
 import classNames from "classnames";
 import * as React from "react";
 
-const Header: FC = () => {
+interface HeaderProps {
+  styles?: string;
+  className?: string;
+}
+
+const Header: FC<HeaderProps> = ({ styles, className }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const pathname = usePathname();
@@ -62,11 +67,14 @@ const Header: FC = () => {
   return (
     <>
       <header
-        className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-          isScrolled
+        className={classNames(
+          styles === "relative" ? "relative" : "fixed top-0 left-0 right-0",
+          "z-50 transition-all duration-300",
+          isScrolled && styles !== "relative"
             ? "bg-white/10 backdrop-blur-lg border-b border-white/20"
-            : "bg-transparent"
-        }`}
+            : "bg-transparent",
+          className
+        )}
       >
         <nav className="container mx-auto px-4 sm:px-6 py-3 sm:py-4">
           <div className="flex items-center justify-between">
