@@ -1,0 +1,1 @@
+export {default as ourServicesData} from './ourServicesData';

@@ -1,0 +1,348 @@
+/* Navigation Menu Styles */
+.NavigationMenuRoot {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    z-index: 1;
+}
+
+.NavigationMenuList {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    border-radius: 6px;
+    list-style: none;
+    margin: 0;
+    background-color: transparent;
+    gap: 1.5rem;
+}
+
+.NavigationMenuTrigger,
+.NavigationMenuLink {
+    padding: 8px 12px;
+    outline: none;
+    -webkit-user-select: none;
+    user-select: none;
+    font-weight: 500;
+    line-height: 1;
+    border-radius: 4px;
+    font-size: 0.875rem;
+    color: #9ca3af;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2px;
+    text-decoration: none;
+    transition: all 0.3s ease;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@media (min-width: 1024px) {
+
+    .NavigationMenuTrigger,
+    .NavigationMenuLink {
+        font-size: 1rem;
+    }
+}
+
+.NavigationMenuTrigger:focus,
+.NavigationMenuLink:focus {
+    box-shadow: 0 0 0 2px #ef4444;
+}
+
+.NavigationMenuTrigger:hover,
+.NavigationMenuLink:hover {
+    color: #ef4444;
+    background-color: #fef2f2;
+}
+
+.NavigationMenuTrigger[data-state='open'] {
+    color: #ef4444;
+}
+
+.NavigationMenuContent {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    min-width: 500px;
+    animation: enterFromTop 250ms ease;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 8px;
+    box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
+    z-index: 50;
+}
+
+@keyframes enterFromTop {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.NavigationMenuIndicator {
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    height: 10px;
+    top: 100%;
+    overflow: hidden;
+    z-index: 1;
+    transition: width, transform 250ms ease;
+}
+
+.NavigationMenuIndicator[data-state='visible'] {
+    animation: fadeIn 200ms ease;
+}
+
+.NavigationMenuIndicator[data-state='hidden'] {
+    animation: fadeOut 200ms ease;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+@keyframes fadeOut {
+    from {
+        opacity: 1;
+    }
+
+    to {
+        opacity: 0;
+    }
+}
+
+.Arrow {
+    position: relative;
+    top: 70%;
+    background-color: white;
+    width: 10px;
+    height: 10px;
+    transform: rotate(45deg);
+    border-top-left-radius: 2px;
+}
+
+.NavigationMenuViewport {
+    position: relative;
+    transform-origin: top center;
+    margin-top: 10px;
+    width: 100%;
+    background-color: transparent;
+    -webkit-backdrop-filter: blur(12px);
+    backdrop-filter: blur(12px);
+    border-radius: 6px;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    box-shadow: 0 10px 38px -10px rgba(0, 0, 0, 0.35), 0 10px 20px -15px rgba(0, 0, 0, 0.2);
+    height: var(--radix-navigation-menu-viewport-height);
+    transition: width, height, 300ms ease;
+    z-index: 50;
+}
+
+.NavigationMenuViewport[data-state='open'] {
+    animation: scaleIn 200ms ease;
+}
+
+.NavigationMenuViewport[data-state='closed'] {
+    animation: scaleOut 200ms ease;
+}
+
+@keyframes scaleIn {
+    from {
+        opacity: 0;
+        transform: rotateX(-30deg) scale(0.9);
+    }
+
+    to {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1);
+    }
+}
+
+@keyframes scaleOut {
+    from {
+        opacity: 1;
+        transform: rotateX(0deg) scale(1);
+    }
+
+    to {
+        opacity: 0;
+        transform: rotateX(-10deg) scale(0.95);
+    }
+}
+
+.ViewportPosition {
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    top: 100%;
+    left: 0;
+    perspective: 2000px;
+}
+
+.CaretDown {
+    position: relative;
+    color: #6b7280;
+    top: 1px;
+    transition: transform 250ms ease;
+}
+
+.NavigationMenuTrigger[data-state='open']>.CaretDown {
+    transform: rotate(-180deg);
+}
+
+.List {
+    display: grid;
+    padding: 22px;
+    margin: 0;
+    column-gap: 10px;
+    list-style: none;
+}
+
+.List.one {
+    width: 500px;
+    grid-template-columns: 0.75fr 1fr;
+}
+
+.grid-row-span-3 {
+    grid-row: span 3;
+}
+
+.List.two {
+    width: 600px;
+    grid-template-columns: 1fr 1fr;
+}
+
+.ListItemLink {
+    display: block;
+    outline: none;
+    text-decoration: none;
+    -webkit-user-select: none;
+    user-select: none;
+    padding: 12px;
+    border-radius: 6px;
+    font-size: 15px;
+    line-height: 1;
+    transition: all 0.3s ease;
+}
+
+.ListItemLink:focus {
+    box-shadow: 0 0 0 2px #ef4444;
+}
+
+.ListItemLink:hover {
+    background-color: #fef2f2;
+}
+
+.ListItemHeading {
+    font-weight: 500;
+    line-height: 1.2;
+    margin-bottom: 5px;
+    color: #ef4444;
+}
+
+.ListItemText {
+    color: #d1d5db;
+    line-height: 1.4;
+    font-weight: initial;
+    margin: 0;
+}
+
+.Callout {
+    display: flex;
+    justify-content: flex-end;
+    flex-direction: column;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, #dc2626 0%, #ef4444 100%);
+    border-radius: 6px;
+    padding: 25px;
+    text-decoration: none;
+    outline: none;
+    -webkit-user-select: none;
+    user-select: none;
+    transition: all 0.3s ease;
+}
+
+.Callout:focus {
+    box-shadow: 0 0 0 2px #ef4444;
+}
+
+.Callout:hover {
+    background: linear-gradient(135deg, #b91c1c 0%, #dc2626 100%);
+}
+
+.CalloutHeading {
+    color: white;
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 1.2;
+    margin-top: 16px;
+    margin-bottom: 7px;
+}
+
+.CalloutText {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 14px;
+    line-height: 1.3;
+    margin: 0;
+}
+
+/* Dark theme styles */
+@media (prefers-color-scheme: dark) {
+    .NavigationMenuList {
+        background-color: rgba(0, 0, 0, 0.8);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .NavigationMenuTrigger,
+    .NavigationMenuLink {
+        color: #d1d5db;
+    }
+
+    .NavigationMenuTrigger:hover,
+    .NavigationMenuLink:hover {
+        color: #ef4444;
+        background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .NavigationMenuViewport {
+        background-color: rgba(0, 0, 0, 0.9);
+        -webkit-backdrop-filter: blur(12px);
+        backdrop-filter: blur(12px);
+        border: 1px solid rgba(255, 255, 255, 0.1);
+    }
+
+    .Arrow {
+        background-color: rgba(0, 0, 0, 0.9);
+    }
+
+    .ListItemLink:hover {
+        background-color: rgba(239, 68, 68, 0.1);
+    }
+
+    .ListItemText {
+        color: #18181b;
+    }
+}
