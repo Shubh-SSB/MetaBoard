@@ -183,9 +183,6 @@ const ContactUs = () => {
 
                   {/* Project Details Section */}
                   <div className="space-y-6">
-                    <h4 className="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2">
-                      Project Details
-                    </h4>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-gray-700">
                         Service Interest *
@@ -207,57 +204,10 @@ const ContactUs = () => {
                         ))}
                       </select>
                     </div>
-                    <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">
-                          Budget Range
-                        </label>
-                        <select
-                          name="budget"
-                          value={formData.budget}
-                          onChange={handleInputChange}
-                          title="Select budget range"
-                          aria-label="Budget Range"
-                          className="w-full p-4 rounded-lg border border-gray-200 bg-white focus:border-red-400 focus:ring-2 focus:ring-red-400/20 focus:outline-none transition-all duration-300"
-                        >
-                          <option value="">Select budget range</option>
-                          <option value="under-25k">Under $25,000</option>
-                          <option value="25k-50k">$25,000 - $50,000</option>
-                          <option value="50k-100k">$50,000 - $100,000</option>
-                          <option value="over-100k">Over $100,000</option>
-                        </select>
-                      </div>
-                      <div className="space-y-2">
-                        <label className="text-sm font-medium text-gray-700">
-                          Timeline
-                        </label>
-                        <select
-                          name="timeline"
-                          value={formData.timeline}
-                          onChange={handleInputChange}
-                          title="Select timeline"
-                          aria-label="Project Timeline"
-                          className="w-full p-4 rounded-lg border border-gray-200 bg-white focus:border-red-400 focus:ring-2 focus:ring-red-400/20 focus:outline-none transition-all duration-300"
-                        >
-                          <option value="">Select timeline</option>
-                          <option value="immediate">
-                            Immediate (1-2 weeks)
-                          </option>
-                          <option value="short">Short-term (1-3 months)</option>
-                          <option value="medium">
-                            Medium-term (3-6 months)
-                          </option>
-                          <option value="long">Long-term (6+ months)</option>
-                        </select>
-                      </div>
-                    </div>
                   </div>
 
                   {/* Additional Information Section */}
                   <div className="space-y-6">
-                    <h4 className="text-lg font-semibold text-gray-800 border-b border-gray-200 pb-2">
-                      Additional Information
-                    </h4>
                     <div className="space-y-2">
                       <label className="text-sm font-medium text-gray-700">
                         Message
@@ -339,13 +289,22 @@ const ContactUs = () => {
                   <h4
                     className={`text-xl font-bold mb-4 ${playfairDisplay.className}`}
                   >
-                    Let's Start a Conversation
+                    Ask how we can help you
                   </h4>
 
                   {/* Contact Info Separator */}
                   <div className="w-12 h-0.5 bg-white/30 mb-6"></div>
 
-                  <div className="space-y-4">
+                  {/* Company Name */}
+                  <div className="mb-6">
+                    <h5 className="font-bold text-lg mb-2">Metaboard®</h5>
+                    <p className="text-red-100 text-sm leading-relaxed">
+                      Metarion Knowledge Solutions Private Limited
+                    </p>
+                  </div>
+
+                  <div className="space-y-5">
+                    {/* Main Office */}
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
                         <svg
@@ -359,17 +318,23 @@ const ContactUs = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         >
-                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                          <circle cx="12" cy="10" r="3" />
                         </svg>
                       </div>
                       <div>
-                        <h5 className="font-medium mb-1 text-sm">Phone</h5>
-                        <p className="text-red-100 text-sm">
-                          +1 (555) 123-4567
+                        <h5 className="font-medium mb-1 text-sm">
+                          Main Office
+                        </h5>
+                        <p className="text-red-100 text-sm leading-relaxed">
+                          Level 2, Elegance, Mathura Road, Jasola,
+                          <br />
+                          New Delhi – 110025, India
                         </p>
                       </div>
                     </div>
 
+                    {/* Email */}
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
                         <svg
@@ -390,11 +355,12 @@ const ContactUs = () => {
                       <div>
                         <h5 className="font-medium mb-1 text-sm">Email</h5>
                         <p className="text-red-100 text-sm">
-                          hello@metaboard.com
+                          info@metaboard.com
                         </p>
                       </div>
                     </div>
 
+                    {/* Phone */}
                     <div className="flex items-start gap-3">
                       <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
                         <svg
@@ -408,16 +374,76 @@ const ContactUs = () => {
                           strokeLinecap="round"
                           strokeLinejoin="round"
                         >
-                          <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
-                          <circle cx="12" cy="10" r="3" />
+                          <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
                         </svg>
                       </div>
                       <div>
-                        <h5 className="font-medium mb-1 text-sm">Address</h5>
-                        <p className="text-red-100 text-sm">
-                          123 Legal Tech Ave
+                        <h5 className="font-medium mb-1 text-sm">Telephone</h5>
+                        <p className="text-red-100 text-sm">+91 11 6635 1542</p>
+                      </div>
+                    </div>
+
+                    {/* Fax */}
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <rect
+                            width="18"
+                            height="18"
+                            x="3"
+                            y="4"
+                            rx="2"
+                            ry="2"
+                          />
+                          <line x1="16" x2="16" y1="2" y2="6" />
+                          <line x1="8" x2="16" y1="6" y2="6" />
+                          <line x1="3" x2="21" y1="10" y2="10" />
+                          <line x1="8" x2="16" y1="14" y2="14" />
+                          <line x1="8" x2="16" y1="18" y2="18" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-medium mb-1 text-sm">Facsimile</h5>
+                        <p className="text-red-100 text-sm">+91 11 6635 1235</p>
+                      </div>
+                    </div>
+
+                    {/* R&D Centre */}
+                    <div className="flex items-start gap-3">
+                      <div className="w-10 h-10 bg-white/20 rounded-lg flex items-center justify-center">
+                        <svg
+                          xmlns="http://www.w3.org/2000/svg"
+                          width="18"
+                          height="18"
+                          viewBox="0 0 24 24"
+                          fill="none"
+                          stroke="currentColor"
+                          strokeWidth="2"
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                        >
+                          <path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z" />
+                          <polyline points="9,22 9,12 15,12 15,22" />
+                        </svg>
+                      </div>
+                      <div>
+                        <h5 className="font-medium mb-1 text-sm">R&D Centre</h5>
+                        <p className="text-red-100 text-sm leading-relaxed">
+                          'Metaboard'
                           <br />
-                          Innovation District, NY 10001
+                          Village – Karnera, Ballabhgarh
+                          <br />
+                          Faridabad – 121004 Haryana, India
                         </p>
                       </div>
                     </div>

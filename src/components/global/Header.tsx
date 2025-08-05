@@ -109,7 +109,7 @@ const Header: FC<HeaderProps> = ({
                           className={`block select-none rounded px-3 py-2 text-[15px] font-medium leading-none no-underline outline-none transition-colors focus:shadow-[0_0_0_2px] focus:shadow-red-500 ${
                             pathname === "/"
                               ? "text-red-500"
-                              : "text-white hover:bg-red-50 hover:text-red-500"
+                              : "text-gray-400 hover:bg-red-50 hover:text-red-500"
                           }`}
                         >
                           Home
@@ -194,7 +194,7 @@ const Header: FC<HeaderProps> = ({
             {/* Mobile Menu Button */}
             {showNavLinks && (
               <button
-                className="md:hidden text-white p-2 hover:bg-white/10 rounded-lg transition-colors duration-300"
+                className="md:hidden text-gray-400 p-2 hover:bg-white/10 rounded-lg transition-colors duration-300"
                 onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
                 aria-label="Toggle mobile menu"
               >
@@ -212,8 +212,8 @@ const Header: FC<HeaderProps> = ({
                   href="/"
                   className={`transition-colors duration-300 font-medium py-2 text-base rounded px-2 ${
                     pathname === "/"
-                      ? "text-red-500 bg-red-50"
-                      : "text-white hover:text-red-500 hover:bg-white/10"
+                      ? "text-red-500"
+                      : "text-gray-400 hover:text-red-500 hover:bg-white/10"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -222,7 +222,7 @@ const Header: FC<HeaderProps> = ({
 
                 {/* Mobile Knowledge Center */}
                 <div className="pl-2">
-                  <div className="text-gray-300 font-medium text-sm mb-2">
+                  <div className="text-gray-400 font-medium text-sm mb-2">
                     Knowledge Center
                   </div>
                   {knowledgeCenterItems.map((item) => (
@@ -231,8 +231,8 @@ const Header: FC<HeaderProps> = ({
                       href={item.href}
                       className={`block transition-colors duration-300 font-medium py-2 text-base rounded px-2 ${
                         pathname === item.href
-                          ? "text-red-500 bg-red-50"
-                          : "text-white hover:text-red-500 hover:bg-white/10"
+                          ? "text-red-500 "
+                          : "text-gray-400 hover:text-red-500 hover:bg-white/10"
                       }`}
                       onClick={() => setIsMobileMenuOpen(false)}
                     >
@@ -246,8 +246,8 @@ const Header: FC<HeaderProps> = ({
                   href="/services"
                   className={`transition-colors duration-300 font-medium py-2 text-base rounded px-2 ${
                     pathname === "/services"
-                      ? "text-red-500 bg-red-50"
-                      : "text-white hover:text-red-500 hover:bg-white/10"
+                      ? "text-red-500"
+                      : "text-gray-400 hover:text-red-500 hover:bg-white/10"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
@@ -259,8 +259,8 @@ const Header: FC<HeaderProps> = ({
                   href="/metarule"
                   className={`transition-colors duration-300 font-medium py-2 text-base rounded px-2 ${
                     pathname === "/metarule"
-                      ? "text-red-500 bg-red-50"
-                      : "text-white hover:text-red-500 hover:bg-white/10"
+                      ? "text-red-500 "
+                      : "text-gray-400 hover:text-red-500 hover:bg-white/10"
                   }`}
                   onClick={() => setIsMobileMenuOpen(false)}
                 >
