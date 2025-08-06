@@ -48,7 +48,7 @@ const RelatedPosts: FC = () => {
         <Card className="glass-card p-6">
             <div className="flex items-center gap-2 mb-6">
                 <TrendingUp className="w-5 h-5 text-primary" />
-                <h3 className="text-lg font-semibold">Related Articles</h3>
+                <h3 className="text-lg font-semibold text-foreground">Related Articles</h3>
             </div>
 
             <div className="space-y-4">
@@ -74,8 +74,8 @@ const RelatedPosts: FC = () => {
                             <div className="flex-1 min-w-0">
                                 <div className="space-y-2">
                                     <Badge
-                                        variant="secondary"
-                                        className="glass text-xs"
+                                        variant="outline"
+                                        className="text-xs"
                                     >
                                         {post.category}
                                     </Badge>

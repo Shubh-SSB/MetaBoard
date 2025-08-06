@@ -9,9 +9,9 @@ interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 const variantClasses: Record<ButtonVariant, string> = {
-    default: "bg-primary text-primary-foreground hover:bg-primary/90",
+    default: "bg-primary text-primary-foreground hover:bg-primary/90 transition-all duration-300 ripple-effect",
     destructive: "bg-destructive text-destructive-foreground hover:bg-destructive/90",
-    outline: "border border-input bg-background  hover:bg-accent hover:text-accent-foreground",
+    outline: "border border-primary  hover:bg-primary hover:text-white transition-all duration-300",
     // outline: "bg-transparent border-1 border-red-500 hover:bg-accent hover:text-accent-foreground",
     secondary: "bg-secondary text-white hover:bg-primary/90",
     ghost: "hover:bg-accent hover:text-accent-foreground",
@@ -25,7 +25,7 @@ const sizeClasses: Record<ButtonSize, string> = {
     icon: "h-10 w-10",
 };
 
-const baseClasses = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:size-4 [&_svg]:shrink-0";
+const baseClasses = "inline-flex items-center justify-center gap-2 whitespace-nowrap rounded-md text-sm font-medium";
 
 const Button = forwardRef<HTMLButtonElement, ButtonProps>(({
     variant = "default",

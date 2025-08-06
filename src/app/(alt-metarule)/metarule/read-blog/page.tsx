@@ -1,23 +1,25 @@
-import { ArticleHeroSection, Header, ScrollToTopBtn } from '@/components/global';
-import { ArticleContentSection, ExploreMoreSection, ArticleScrollProgress } from '@/components/local/articleDetails';
+export const dynamic = 'force-dynamic';
+
+import { AltHeader } from '@/components/alt/global';
+import { ArticleHeroSection, Footer, ScrollToTopBtn } from '@/components/global';
+import { ArticleContentSection, ExploreMoreSection, ArticleScrollProgress } from '@/components/local/read-article';
 import { $crud } from '@/factory/crudFactory';
 
 type PageProps = {
     searchParams: Promise<Record<string, string | string[]>>;
 };
 
-export const dynamic = 'force-dynamic';
 
-const ArticleDetail = async ({ searchParams }: PageProps) => {
+const ReadBlog = async ({ searchParams }: PageProps) => {
 
-    let article: any = [];
+    let blog: any = [];
 
     try {
        const resolvedSearchParams = await searchParams;
         const id = resolvedSearchParams?.id;
         if (id) {
-            const { data } = await $crud.get(`retrieve/web/article-by-id?id=${id}`);
-            article = data;
+            const { data } = await $crud.get(`retrieve/web/metarule/blog-by-id?id=${id}`);
+            blog = data;
         }
     } catch (error) {
         console.error('Error fetching article:', error);
@@ -50,27 +52,30 @@ const ArticleDetail = async ({ searchParams }: PageProps) => {
             <ArticleScrollProgress />
 
             {/* Header */}
-            <Header styles='relative'/>
+            <AltHeader/>
 
             {/* Article Hero */}
             <ArticleHeroSection
-                data={article}
+                data={blog}
             />
 
             {/* Article Content */}
             <ArticleContentSection
                 relatedArticles={relatedArticles}
-                articleHtml={article.contentHtml}
-                articleCss={article.contentCss}
+                articleHtml={blog.contentHtml}
+                articleCss={blog.contentCss}
             />
 
             {/* Footer CTA */}
             <ExploreMoreSection />
 
+            <Footer/>
             {/* Back to Top Button */}
             <ScrollToTopBtn />
+
+
         </div>
     );
 };
 
-export default ArticleDetail;
+export default ReadBlog;

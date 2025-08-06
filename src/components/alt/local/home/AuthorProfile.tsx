@@ -50,7 +50,7 @@ const AuthorProfile = () => {
                         {socialLinks.map((social) => (
                             <Button
                                 key={social.label}
-                                variant="outline"
+                                variant="secondary"
                                 size="sm"
                                 className="glass-hover border-glass"
                             >
@@ -64,7 +64,7 @@ const AuthorProfile = () => {
                     {/* Expertise Tags */}
                     <div className="flex flex-wrap gap-2">
                         {expertise.slice(0, 3).map((skill) => (
-                            <Badge key={skill} variant="secondary" className="glass text-xs">
+                            <Badge key={skill} variant="outline" className="text-xs">
                                 {skill}
                             </Badge>
                         ))}
@@ -101,7 +101,7 @@ const AuthorProfile = () => {
             {isExpanded && (
                 <div className="mt-6 pt-6 border-t border-glass space-y-4 animate-in slide-in-from-top-2">
                     <div>
-                        <h3 className="text-lg font-semibold mb-3">Biography</h3>
+                        <h3 className="text-lg font-semibold text-foreground mb-3">Biography</h3>
                         <p className="text-muted-foreground leading-relaxed">
                             Dr. Sarah Mitchell is a pioneering figure in legal technology with over 15 years of experience bridging
                             the gap between traditional legal practice and cutting-edge technology. She holds a J.D. from Harvard Law
@@ -111,10 +111,10 @@ const AuthorProfile = () => {
                     </div>
 
                     <div>
-                        <h3 className="text-lg font-semibold mb-3">All Expertise Areas</h3>
+                        <h3 className="text-lg font-semibold text-foreground mb-3">All Expertise Areas</h3>
                         <div className="flex flex-wrap gap-2">
                             {expertise.map((skill) => (
-                                <Badge key={skill} variant="secondary" className="glass text-xs">
+                                <Badge key={skill} variant="outline" className="text-xs">
                                     {skill}
                                 </Badge>
                             ))}
@@ -122,7 +122,7 @@ const AuthorProfile = () => {
                     </div>
 
                     <div>
-                        <h3 className="text-lg font-semibold mb-3">Recent Achievements</h3>
+                        <h3 className="text-lg font-semibold text-foreground mb-3">Recent Achievements</h3>
                         <ul className="text-muted-foreground space-y-2">
                             <li>• Named "Legal Innovator of the Year" by Legal Tech Weekly (2024)</li>
                             <li>• Keynote speaker at the Global Legal Technology Summit</li>

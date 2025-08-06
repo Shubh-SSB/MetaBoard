@@ -14,7 +14,7 @@ const Pagination: FC<props> = ({
     currentPage = 0,
     onPageChange,
 }) => {
-    totalRecords = 60
+    
     const totalPages = Math.ceil(totalRecords / limit);
 
     const handlePageChange = (updatedPage: number) => {

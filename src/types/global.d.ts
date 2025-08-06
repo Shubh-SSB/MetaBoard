@@ -6,6 +6,14 @@ interface ArticleInterface {
     coverImage: string;
     publishedAt: string;
 }
+interface BlogInterface {
+    id: number;
+    title: string;
+    description: string;
+    author: string;
+    coverImage: string;
+    publishedAt: string;
+}
 interface PublicationInterface {
     id: number;
     title: string;

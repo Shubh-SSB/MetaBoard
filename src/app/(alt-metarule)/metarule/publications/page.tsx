@@ -1,7 +1,8 @@
+export const dynamic = 'force-dynamic';
 
 import { AltHeader, HeroSection } from '@/components/alt/global';
 import { PublicationListingSection } from '@/components/alt/local/publications';
-import { Footer } from '@/components/global';
+import { Footer, ScrollToTopBtn } from '@/components/global';
 import { $crud } from '@/factory/crudFactory';
 
 
@@ -11,7 +12,7 @@ const Publications = async () => {
     let totalPublications = 0;
 
     try {
-        const { data: { rows, count } } = await $crud.get('retrieve/web/publications');
+        const { data: { rows, count } } = await $crud.get('retrieve/web/metarule/publications');
         publicationList = rows;
         totalPublications = count;
     } catch (e) {
@@ -19,22 +20,14 @@ const Publications = async () => {
     }
     return (<>
         <div className="min-h-screen gradient-primary">
-            {/* Navigation Header */}
-            <AltHeader />
-
-            {/* Hero Section */}
             <HeroSection
                 page='publications'
             />
             <PublicationListingSection
                 preloadPublications={publicationList}
-                totalPublications={totalPublications}
+                totalRecords={totalPublications}
             />
-
-
-
-            {/* Footer */}
-            <Footer />
+            <ScrollToTopBtn />
         </div>
     </>);
 }

@@ -4,6 +4,7 @@ import React, { useState, useEffect, useRef } from "react";
 import {
   Monitor,
   Users,
+  ArrowRight,
   BookOpen,
   Zap,
   ArrowLeft,
@@ -12,6 +13,8 @@ import {
   ChevronLeft,
   ChevronRight,
   Star,
+  Cog,
+  Lightbulb,
   Award,
   Clock,
   TrendingUp,
@@ -19,6 +22,7 @@ import {
 import Link from "next/link";
 import { Header, Footer } from "@/components/global";
 import { Swiper, SwiperSlide } from "swiper/react";
+import { Button } from "@/components/ui";
 import { Navigation, Pagination, Autoplay } from "swiper/modules";
 import "swiper/css";
 import "swiper/css/navigation";
@@ -430,7 +434,7 @@ const AboutUs = () => {
   };
 
   return (
-    <div className={`min-h-screen bg-white ${raleway.className}`}>
+    <div className="min-h-screen">
       {/* <div className="sticky top-16 z-40 bg-white/80 backdrop-blur-sm border-b border-gray-200">
         <div className="container mx-auto px-6 py-4">
           <div className="flex items-center gap-4">
@@ -446,155 +450,85 @@ const AboutUs = () => {
           </div>
         </div>
       </div> */}
-      <Header />
 
       {/* Hero Section */}
-      <section className="min-h-screen py-60 bg-black text-white relative overflow-hidden">
-        {/* Background Elements */}
-        <div className="absolute inset-0 gradient-mesh"></div>
-
-        {/* Floating Elements */}
-        <div className="absolute inset-0 overflow-hidden pointer-events-none">
-          <div className="absolute top-20 left-10 w-4 h-4 bg-red-500/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-6 h-6 bg-white/10 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-40 left-20 w-8 h-8 bg-red-400/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-60 right-40 w-3 h-3 bg-white/20 rounded-full animate-bounce"></div>
+      <section className="relative min-h-screen flex items-center text-gray-900 justify-center overflow-hidden">
+        {/* Animated Background Elements */}
+        <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-rose-600/10"></div>
+        <div className="absolute inset-0">
+          <div className="absolute top-20 left-20 w-72 h-72 bg-red-500/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-72 h-72 bg-blue-500/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-1000"></div>
+          <div className="absolute bottom-20 left-1/3 w-72 h-72 bg-purple-500/10 rounded-full mix-blend-multiply filter blur-xl animate-pulse delay-2000"></div>
         </div>
 
-        <div className="absolute inset-0 bg-black/40"></div>
+        {/* Grid Pattern Overlay */}
+        {/* <div className="absolute inset-0 bg-grid-white/[0.02] bg-[size:60px_60px]"></div> */}
 
-        <div className="container mx-auto px-6 relative z-10">
-          <div className="max-w-4xl mx-auto text-center">
-            <h1
-              className={`text-5xl md:text-6xl font-bold mb-8 text-white ${playfairDisplay.className}`}
-            >
-              <span className={`text-red-500 font-raleway font-normal`}>
-                {typewriterText}
-                {showCursor && <span className="animate-pulse">|</span>}
-              </span>
-            </h1>
-
-            <div className="p-8 rounded-2xl bg-white/10 backdrop-blur-sm border border-white/20 shadow-2xl mb-12">
-              <p
-                className={`text-xl text-gray-200 leading-relaxed ${playfairDisplay.className}`}
-              >
-                Pioneering digital transformation through innovative solutions,
-                expert guidance, and exceptional client partnerships since 2009.
-              </p>
-            </div>
-
-            <div className="w-16 h-1 bg-red-500 mx-auto mb-8"></div>
-
-            <div className="max-w-5xl mx-auto">
-              <p
-                className={`text-lg md:text-xl text-gray-300 leading-relaxed ${playfairDisplay.className}`}
-              >
-                We believe in the power of technology to transform businesses
-                and create meaningful impact. Our journey began with a simple
-                mission: to bridge the gap between cutting-edge technology and
-                business success.
-              </p>
-            </div>
-          </div>
-
-          {/* Scroll Indicator */}
-          <div className="flex justify-center mt-12">
-            <div className="flex flex-col items-center gap-2 animate-bounce">
-              <span className="text-white/70 text-sm font-medium">
-                Scroll Down
-              </span>
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
-                width="24"
-                height="24"
-                viewBox="0 0 24 24"
-                fill="none"
-                stroke="currentColor"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                className="text-red-500 animate-pulse"
-              >
-                <path d="M12 5v14m7-7-7 7-7-7" />
-              </svg>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Our Story Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
+        <div className="container mx-auto px-6 py-20 my-20 text-gray-900 mb-6 relative z-10">
+          <div className="max-w-7xl mx-auto">
+            {/* Main Content */}
             <div className="text-center mb-16">
-              <h2
-                className={`text-4xl md:text-5xl font-bold text-black mb-6 ${playfairDisplay.className}`}
-              >
-                Our <span className="text-gradient">Story</span>
-              </h2>
-              <div className="max-w-4xl mx-auto">
-                <p className="text-lg text-gray-600 leading-relaxed mb-6">
-                  Founded in 2009, Metaboard began as a vision to bridge the gap
-                  between cutting-edge technology and business innovation. What
-                  started as a small team of passionate developers and
-                  strategists has evolved into a comprehensive digital
-                  transformation partner.
-                </p>
-                <p className="text-lg text-gray-600 leading-relaxed">
-                  Today, we're proud to have helped hundreds of organizations
-                  across various industries achieve their digital goals through
-                  strategic consulting, innovative solutions, and unwavering
-                  commitment to excellence.
-                </p>
-              </div>
+              {/* Main Heading */}
+              <h1 className="text-5xl md:text-6xl font-bold bg-clip-text bg-gradient-to-r from-white via-gray-200 to-white mb-6 leading-tight">
+                Defending Your Rights
+                <span className="block my-8 text-red-500">
+                  <span className="">We are </span>
+                  <span className="text-gradient"> MetaBoard®</span>
+                </span>
+              </h1>
 
-              <div className="flex justify-center mt-8">
-                <div className="w-20 h-0.5 bg-gradient-to-r from-red-400 to-red-600"></div>
+              {/* Subtitle */}
+              <p className="text-base md:text-lg text-gray-600 mx-auto mb-12 leading-relaxed">
+                We're transforming how legal professionals work with
+                cutting-edge technology, intelligent automation, and innovative
+                solutions that drive efficiency and excellence.
+              </p>
+
+              {/* CTA Buttons */}
+              <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
+                <Button
+                  onClick={() => {
+                    const aboutUs = document.getElementById("aboutUs");
+                    if (aboutUs) {
+                      aboutUs.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  size="lg"
+                  className="shadow-lg"
+                >
+                  About Us
+                </Button>
+                <Button
+                  onClick={() => {
+                    const teamSection = document.getElementById("team");
+                    if (teamSection) {
+                      teamSection.scrollIntoView({ behavior: "smooth" });
+                    }
+                  }}
+                  size="lg"
+                  className="bg-transparent hover:text-white text-red-700 border-2 border-red-700 shadow-lg"
+                >
+                  Meet Our Teams
+                </Button>
               </div>
             </div>
 
-            {/* Timeline */}
-            <div className="relative">
-              <div className="absolute left-1/2 transform -translate-x-px h-full w-0.5 bg-gradient-to-b from-red-500 to-red-300"></div>
-
-              <div className="space-y-12">
-                {milestones.map((milestone, index) => (
-                  <div
-                    key={index}
-                    className={`relative flex items-center ${
-                      index % 2 === 0 ? "justify-start" : "justify-end"
-                    }`}
-                  >
-                    <div
-                      className={`w-5/12 ${
-                        index % 2 === 0 ? "pr-8 text-right" : "pl-8 text-left"
-                      }`}
-                    >
-                      <div className="bg-white p-6 rounded-xl shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
-                        <div className="text-red-600 font-bold text-xl mb-2">
-                          {milestone.year}
-                        </div>
-                        <h3
-                          className={`font-bold text-black mb-3 ${playfairDisplay.className}`}
-                        >
-                          {milestone.title}
-                        </h3>
-                        <p className="text-gray-600 text-sm leading-relaxed">
-                          {milestone.description}
-                        </p>
-                      </div>
-                    </div>
-
-                    <div className="absolute left-1/2 transform -translate-x-1/2 w-4 h-4 bg-red-500 rounded-full border-4 border-white shadow-lg"></div>
-                  </div>
-                ))}
+            {/* Scroll Indicator */}
+            <div className="text-center mt-16">
+              <div className="inline-flex flex-col items-center text-gray-400 group cursor-pointer">
+                <span className="text-sm font-medium mb-2 group-hover:text-white transition-colors">
+                  Know more about us!
+                </span>
+                <div className="w-6 h-10 border-2 border-gray-400 rounded-full flex justify-center group-hover:border-white transition-colors">
+                  <div className="w-1 h-3 bg-gray-400 rounded-full mt-2 animate-bounce group-hover:bg-white transition-colors"></div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* Mission & Vision Section */}
+      {/* Mission & Vision Section
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="max-w-6xl mx-auto">
@@ -636,56 +570,7 @@ const AboutUs = () => {
             </div>
           </div>
         </div>
-      </section>
-
-      {/* Core Values Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-6xl mx-auto">
-            <div className="text-center mb-16">
-              <h2
-                className={`text-4xl md:text-5xl font-bold text-black mb-6 ${playfairDisplay.className}`}
-              >
-                Our <span className="text-gradient">Values</span>
-              </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto mb-8">
-                These core principles guide everything we do and define who we
-                are as a company.
-              </p>
-              <div className="flex justify-center">
-                <div className="w-20 h-0.5 bg-gradient-to-r from-red-400 to-red-600"></div>
-              </div>
-            </div>
-
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-              {coreValues.map((value, index) => (
-                <div
-                  key={index}
-                  className="text-center p-6 rounded-2xl bg-gray-50 hover:bg-white hover:shadow-lg transition-all duration-300 group"
-                >
-                  <div className="w-16 h-16 bg-red-50 rounded-full flex items-center justify-center mx-auto mb-4 group-hover:bg-red-100 transition-colors duration-300">
-                    <value.icon
-                      size={28}
-                      className="text-red-600 group-hover:scale-110 transition-transform duration-300"
-                    />
-                  </div>
-                  <h4
-                    className={`font-bold text-black mb-3 ${playfairDisplay.className}`}
-                  >
-                    {value.title}
-                  </h4>
-                  <p className="text-gray-600 text-sm leading-relaxed">
-                    {value.description}
-                  </p>
-                </div>
-              ))}
-            </div>
-          </div>
-        </div>
-      </section>
-
-      {/* Breadcrumb */}
-
+      </section> */}
       <div className="py-8 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="flex items-center justify-center">
@@ -699,14 +584,251 @@ const AboutUs = () => {
           </div>
         </div>
       </div>
+      {/* about us section */}
+      <section id="aboutUs" className="py-20 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className={"text-4xl md:text-5xl font-bold text-black mb-6 "}>
+                About <span className="text-gradient">MetaBoard®</span>
+              </h2>
+              <div className="flex justify-center mb-8">
+                <div className="w-20 h-0.5 bg-gradient-to-r from-red-400 to-red-600"></div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-gray-100">
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-6 text-gray-800 font-medium">
+                  <span className="text-red-600 font-bold">Metaboard®</span> is
+                  a pioneering platform dedicated to enriching minds and
+                  fostering expertise in the dynamic realms of law. Specializing
+                  in Technology, AI, Intellectual Property, and Data Laws, we
+                  stand at the forefront of legal education and innovation.
+                </p>
+
+                <p className="mb-6">
+                  Our core offering includes comprehensive online educational
+                  material and courses, meticulously designed for students,
+                  professionals, and government officials. Our platform is more
+                  than just an information repository; it's a bridge connecting
+                  theory with practical insights.
+                </p>
+
+                <p className="mb-6">
+                  Beyond online resources,{" "}
+                  <span className="text-red-600 font-semibold">Metaboard®</span>{" "}
+                  takes pride in delivering bespoke corporate training
+                  workshops, tailored to meet the specific needs of various
+                  entities. These interactive sessions are conducted offline,
+                  providing a hands-on learning experience.
+                </p>
+
+                <p className="mb-6">
+                  Our audience of learners is diverse and inclusive, ranging
+                  from curious students embarking on their legal journey, to
+                  seasoned professionals seeking to deepen their expertise, as
+                  well as government officials aiming to stay abreast of legal
+                  advancements.
+                </p>
+
+                <p className="text-lg font-medium text-gray-800">
+                  At <span className="text-red-600 font-bold">Metaboard</span>,
+                  we believe in empowering each individual with knowledge that's
+                  not just comprehensive but also relevant in today's rapidly
+                  evolving legal landscape.
+                </p>
+              </div>
+
+              {/* Key Highlights */}
+              <div className="grid md:grid-cols-3 gap-6 mt-12 pt-8 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <BookOpen size={28} className="text-red-600" />
+                  </div>
+                  <h4 className={"font-bold text-black mb-2"}>
+                    Educational Excellence
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Comprehensive online courses and materials for legal
+                    professionals
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Users size={28} className="text-red-600" />
+                  </div>
+                  <h4 className={"font-bold text-black mb-2"}>
+                    Corporate Training
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Bespoke workshops tailored to specific organizational needs
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Lightbulb size={28} className="text-red-600" />
+                  </div>
+                  <h4 className={"font-bold text-black mb-2"}>
+                    Legal Innovation
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Specializing in Technology, AI, IP, and Data Laws
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+      <div className="py-8 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-center">
+            <div className="flex-1 border-t border-gray-300"></div>
+            <div className="mx-6 flex items-center gap-2">
+              <div className="w-2 h-2 bg-red-500 "></div>
+              <div className="w-3 h-3 bg-red-500 "></div>
+              <div className="w-2 h-2 bg-red-500 "></div>
+            </div>
+            <div className="flex-1 border-t border-gray-300"></div>
+          </div>
+        </div>
+      </div>
+      {/* who are we? */}
+      <section className="py-20 bg-white">
+        <div className="container mx-auto px-6">
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className={"text-4xl md:text-5xl font-bold text-black mb-6 "}>
+                Who <span className="text-gradient">We Are</span>
+              </h2>
+              <div className="flex justify-center mb-8">
+                <div className="w-20 h-0.5 bg-gradient-to-r from-red-400 to-red-600"></div>
+              </div>
+            </div>
+
+            <div className="bg-white rounded-3xl p-8 md:p-12 shadow-lg border border-gray-100">
+              <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                <p className="text-xl mb-6 text-gray-800 font-medium">
+                  <span className="text-red-600 font-bold">Metaboard®</span> was
+                  founded in 2004 by{" "}
+                  <span className="text-red-600 font-bold">
+                    Mr. Rodney D. Ryder
+                  </span>
+                  , a distinguished figure in the legal industry with over two
+                  decades of experience. Mr. Ryder, known for his profound
+                  expertise in technology, intellectual property, and corporate
+                  law, has established himself as a leading lawyer in these
+                  fields.
+                </p>
+
+                <p className="mb-6">
+                  His journey includes being a founding partner at Scriboard®, a
+                  full-service commercial law firm renowned for its
+                  specialization in technology, new media, and intellectual
+                  property laws. Mr. Ryder's commitment to law extends beyond
+                  practice; he is an acclaimed author, having penned influential
+                  books on cyber laws and intellectual property, including his
+                  work "Intellectual Property and the Internet," which was
+                  acknowledged by the Supreme Court of India.
+                </p>
+
+                <p className="mb-6">
+                  He has been an advisor to the Ministry of Communications and
+                  Information Technology, Government of India, on the
+                  implementation of the Information Technology Act, 2000. His
+                  achievements and contributions to the legal field have earned
+                  him recognition as a 'Leading Lawyer' in intellectual
+                  property, technology, communications, and media law by
+                  prestigious international publications such as Asia Law, Who's
+                  Who Legal, and Asia Legal 500.
+                </p>
+
+                <p className="mb-6">
+                  The inspiration behind{" "}
+                  <span className="text-red-600 font-semibold">Metaboard®</span>{" "}
+                  stems from Mr. Ryder's ambition to bridge the gap in legal
+                  education, particularly in technology and intellectual
+                  property law. His vision is to democratize access to
+                  high-quality legal education, making it more affordable and
+                  accessible.
+                </p>
+
+                <p className="text-lg font-medium text-gray-800">
+                  With{" "}
+                  <span className="text-red-600 font-bold">Metaboard®</span>,
+                  Mr. Ryder brings his wealth of knowledge and experience to the
+                  forefront, offering a platform that nurtures and empowers
+                  budding legal minds, professionals, and government officials
+                  in their quest for excellence in the legal domain.
+                </p>
+              </div>
+
+              {/* Key Milestones */}
+              <div className="grid md:grid-cols-3 gap-8 mt-12 pt-8 border-t border-gray-200">
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <div className="text-red-600 font-bold text-lg">2004</div>
+                  </div>
+                  <h4 className={"font-bold text-black mb-2"}>Founded in</h4>
+                  <p className="text-gray-600 text-sm">
+                    Established to bridge the gap in legal education
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Users size={28} className="text-red-600" />
+                  </div>
+                  <h4 className={"font-bold text-black mb-2"}>
+                    Mr. Rodney D. Ryder
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Founded by distinguished legal expert with 20+ years
+                    experience
+                  </p>
+                </div>
+
+                <div className="text-center">
+                  <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Award size={28} className="text-red-600" />
+                  </div>
+                  <h4 className={"font-bold text-black mb-2"}>
+                    Supreme Court of India
+                  </h4>
+                  <p className="text-gray-600 text-sm">
+                    Work acknowledged by the highest court of India
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      {/* Breadcrumb */}
+
+      <div className="py-8 bg-gray-50">
+        <div className="container mx-auto px-6">
+          <div className="flex items-center justify-center">
+            <div className="flex-1 border-t border-gray-300"></div>
+            <div className="mx-6 flex items-center gap-2">
+              <div className="w-5 h-2 bg-red-500 rounded-xl"></div>
+              <div className="w-7 h-3 bg-red-500 rounded-lg"></div>
+              <div className="w-5 h-2 bg-red-500 rounded-full"></div>
+            </div>
+            <div className="flex-1 border-t border-gray-300"></div>
+          </div>
+        </div>
+      </div>
 
       {/* Team Profiles */}
-      <section className="py-20 bg-gray-50">
+      <section id="team" className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
           <div className="text-center mb-16">
-            <h2
-              className={`text-4xl md:text-5xl font-bold text-black mb-4 ${playfairDisplay.className}`}
-            >
+            <h2 className={"text-4xl md:text-5xl font-bold text-black mb-4"}>
               Our <span className="text-gradient">Team</span>
             </h2>
             <p
@@ -725,9 +847,7 @@ const AboutUs = () => {
           {/* Technical Team */}
           <div className="mb-16">
             <div className="text-center mb-12">
-              <h3
-                className={`text-3xl font-bold text-black mb-4 ${playfairDisplay.className}`}
-              >
+              <h3 className={"text-4xl md:text-5xl font-bold text-black mb-4"}>
                 Technical <span className="text-gradient">Team</span>
               </h3>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -773,9 +893,7 @@ const AboutUs = () => {
                       {/* Bio Overlay - Shows on hover */}
                       <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center flex-col justify-center p-4 pointer-events-none group-hover:pointer-events-auto">
                         <div className="text-center text-white">
-                          <h3
-                            className={`text-lg font-bold mb-2 ${playfairDisplay.className}`}
-                          >
+                          <h3 className={"text-lg font-bold mb-2"}>
                             {member.name}
                           </h3>
                           <p className="text-sm text-gray-300 mb-3">
@@ -833,7 +951,7 @@ const AboutUs = () => {
                       <div className="absolute bottom-0 left-0 right-0 bg-white/95 border-1 border-red-600 mx-2 mb-2 p-2 rounded-lg group-hover:opacity-0 transition-opacity duration-300">
                         <div className="text-center">
                           <h3
-                            className={`text-base font-bold text-red-600 mb-1 ${playfairDisplay.className}`}
+                            className={"text-base font-bold text-red-600 mb-1"}
                           >
                             {member.name}
                           </h3>
@@ -868,9 +986,7 @@ const AboutUs = () => {
           {/* Legal Team */}
           <div>
             <div className="text-center mb-12">
-              <h3
-                className={`text-3xl font-bold text-black mb-4 ${playfairDisplay.className}`}
-              >
+              <h3 className={"text-4xl md:5xl font-bold text-black mb-4"}>
                 Legal <span className="text-gradient">Team</span>
               </h3>
               <p className="text-gray-600 max-w-2xl mx-auto">
@@ -917,9 +1033,7 @@ const AboutUs = () => {
                       {/* Bio Overlay - Shows on hover */}
                       <div className="absolute inset-0 bg-black/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center flex-col justify-center p-4 pointer-events-none group-hover:pointer-events-auto">
                         <div className="text-center text-white">
-                          <h3
-                            className={`text-lg font-bold mb-2 ${playfairDisplay.className}`}
-                          >
+                          <h3 className={"text-lg font-bold mb-2"}>
                             {member.name}
                           </h3>
                           <p className="text-sm text-gray-300 mb-3">
@@ -977,7 +1091,7 @@ const AboutUs = () => {
                       <div className="absolute bottom-0 left-0 right-0 bg-white/95 border-1 border-blue-600 mx-2 mb-2 p-2 rounded-lg group-hover:opacity-0 transition-opacity duration-300">
                         <div className="text-center">
                           <h3
-                            className={`text-base font-bold text-blue-600 mb-1 ${playfairDisplay.className}`}
+                            className={"text-base font-bold text-blue-600 mb-1"}
                           >
                             {member.name}
                           </h3>
@@ -1055,141 +1169,106 @@ const AboutUs = () => {
         </div>
       </div>
 
-      {/* Testimonials Section */}
+      {/* vision and mission section */}
       <section className="py-20 bg-gray-50">
         <div className="container mx-auto px-6">
-          <div className="text-center mb-16">
-            <h2
-              className={`text-4xl md:text-5xl font-bold text-black mb-4 ${playfairDisplay.className}`}
-            >
-              What Our <span className="text-gradient">Clients Say</span>
-            </h2>
-            <p
-              className={`text-xl text-gray-600 max-w-2xl mx-auto ${playfairDisplay.className}`}
-            >
-              Discover how we've helped businesses transform their operations
-              and achieve their goals.
-            </p>
-
-            {/* Mini Separator */}
-            <div className="flex justify-center mt-8">
-              <div className="w-20 h-0.5 bg-gradient-to-r from-red-400 to-red-600"></div>
-            </div>
-          </div>
-
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-7xl mx-auto">
-            {testimonials.map((testimonial) => (
-              <div
-                key={testimonial.id}
-                className="bg-white rounded-2xl p-6 shadow-sm border border-gray-100 hover:shadow-lg hover:border-red-200 transition-all duration-300 group"
-              >
-                <div className="flex items-center justify-between mb-4">
-                  <div className="flex text-red-500">
-                    {[...Array(5)].map((_, i) => (
-                      <svg
-                        key={i}
-                        xmlns="http://www.w3.org/2000/svg"
-                        width="18"
-                        height="18"
-                        viewBox="0 0 24 24"
-                        fill="currentColor"
-                        className="mr-1"
-                      >
-                        <polygon points="12,2 15,8.5 22,9.3 17,14 18.5,21 12,17.8 5.5,21 7,14 2,9.3 9,8.5" />
-                      </svg>
-                    ))}
-                  </div>
-                  <div className="text-2xl text-red-500/30 group-hover:text-red-500/50 transition-colors duration-300">
-                    "
-                  </div>
-                </div>
-
-                <p className="text-gray-600 leading-relaxed mb-6 text-sm">
-                  {testimonial.content}
-                </p>
-
-                <div className="flex items-center">
-                  <div className="w-12 h-12 bg-red-50 rounded-full flex items-center justify-center mr-4">
-                    <Users size={20} className="text-red-600" />
-                  </div>
-                  <div>
-                    <h4
-                      className={`font-semibold text-black ${playfairDisplay.className}`}
-                    >
-                      {testimonial.name}
-                    </h4>
-                    <p className="text-gray-500 text-sm">
-                      {testimonial.role} • {testimonial.company}
-                    </p>
-                  </div>
-                </div>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* FAQ Section */}
-      <section className="py-20 bg-white">
-        <div className="container mx-auto px-6">
-          <div className="max-w-4xl mx-auto">
-            <div className="text-center mb-12">
-              <h2
-                className={`text-4xl md:text-5xl font-bold text-black mb-4 ${playfairDisplay.className}`}
-              >
-                Frequently Asked{" "}
-                <span className="text-gradient">Questions</span>
+          <div className="max-w-6xl mx-auto">
+            <div className="text-center mb-16">
+              <h2 className={"text-4xl md:text-5xl font-bold text-black mb-6 "}>
+                Our Mission & <span className="text-gradient">Vision</span>
               </h2>
-              <p className="text-gray-600 max-w-2xl mx-auto">
-                Get answers to common questions about our company and services.
-              </p>
-
-              {/* Mini Separator */}
-              <div className="flex justify-center mt-6">
-                <div className="w-16 h-0.5 bg-red-500"></div>
+              <div className="flex justify-center mb-8">
+                <div className="w-20 h-0.5 bg-gradient-to-r from-red-400 to-red-600"></div>
               </div>
             </div>
 
-            <div className="space-y-4">
-              {faqs.map((faq) => (
-                <div
-                  key={faq.id}
-                  className="bg-gray-50 rounded-xl border border-gray-200 hover:border-red-200 transition-colors duration-300 overflow-hidden"
-                >
-                  <button
-                    onClick={() => toggleFaq(faq.id)}
-                    className="w-full p-6 text-left flex items-center justify-between hover:bg-gray-100 transition-colors duration-300"
-                  >
-                    <h4
-                      className={`font-semibold text-black pr-4 ${playfairDisplay.className}`}
-                    >
-                      {faq.question}
-                    </h4>
-                    <div className="flex-shrink-0">
-                      {expandedFaq === faq.id ? (
-                        <ChevronUp size={20} className="text-red-600" />
-                      ) : (
-                        <ChevronDown size={20} className="text-gray-400" />
-                      )}
-                    </div>
-                  </button>
-
-                  <div
-                    className={`overflow-hidden transition-all duration-300 ${
-                      expandedFaq === faq.id
-                        ? "max-h-48 opacity-100"
-                        : "max-h-0 opacity-0"
-                    }`}
-                  >
-                    <div className="px-6 pb-6">
-                      <div className="w-full h-px bg-gray-200 mb-4"></div>
-                      <p className="text-gray-600 leading-relaxed">
-                        {faq.answer}
-                      </p>
-                    </div>
-                  </div>
+            <div className="grid md:grid-cols-2 gap-8">
+              {/* Mission Card */}
+              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-6">
+                  {/* <div className="w-16 h-16 bg-red-50 rounded-2xl flex items-center justify-center mr-4">
+                    <Award size={32} className="text-red-600" />
+                  </div> */}
+                  <h3 className={"text-2xl md:text-3xl font-bold text-black"}>
+                    Our Mission
+                  </h3>
                 </div>
-              ))}
+
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                  <p className="mb-4">
+                    At{" "}
+                    <span className="text-red-600 font-semibold">
+                      Metaboard®
+                    </span>
+                    , our mission is to redefine the landscape of legal
+                    education. We are committed to providing quality legal
+                    education that is not just comprehensive but also practical
+                    and accessible. Our focus extends beyond imparting
+                    knowledge; we aim to equip every learner, irrespective of
+                    their background or career stage, with the skills and
+                    confidence needed to excel in the legal field.
+                  </p>
+
+                  <p className="text-gray-800 font-medium">
+                    Central to our mission is the belief that quality education
+                    in law should be a right, not a privilege. We strive to
+                    remove barriers to legal education, making it more
+                    affordable and reachable. Our courses are designed to be
+                    flexible and relevant, ensuring that learning is not
+                    confined to textbooks but extends to real-world
+                    applications. By fostering an environment of continuous
+                    learning and professional development,{" "}
+                    <span className="text-red-600 font-semibold">
+                      Metaboard®
+                    </span>{" "}
+                    aims to empower a new generation of legal professionals who
+                    are ready to tackle the challenges of the modern legal
+                    landscape.
+                  </p>
+                </div>
+              </div>
+
+              {/* Vision Card */}
+              <div className="bg-white rounded-3xl p-8 md:p-10 shadow-lg border border-gray-100 hover:shadow-xl transition-shadow duration-300">
+                <div className="flex items-center mb-6">
+                  {/* <div className="w-16 h-16 bg-blue-50 rounded-2xl flex items-center justify-center mr-4">
+                    <TrendingUp size={32} className="text-blue-600" />
+                  </div> */}
+                  <h3 className={"text-2xl md:text-3xl font-bold text-black"}>
+                    Our Vision
+                  </h3>
+                </div>
+
+                <div className="prose prose-lg max-w-none text-gray-700 leading-relaxed">
+                  <p className="mb-4">
+                    Our vision at{" "}
+                    <span className="text-red-600 font-semibold">
+                      Metaboard®
+                    </span>{" "}
+                    is to become a beacon of legal education globally. We aspire
+                    to create a world where every aspiring legal professional,
+                    student, or government official has access to the highest
+                    quality of legal education and training. Our goal is to not
+                    just educate but to inspire and empower our learners to
+                    become leaders and innovators in the field of law.
+                  </p>
+
+                  <p className="text-gray-800 font-medium">
+                    Looking to the future, we envision{" "}
+                    <span className="text-red-600 font-semibold">
+                      Metaboard®
+                    </span>{" "}
+                    as a platform where the boundaries of traditional legal
+                    education are pushed, and new ways of thinking are fostered.
+                    We aim to continuously evolve with the ever-changing legal
+                    landscape, incorporating the latest advancements in
+                    technology and law. Our vision is to cultivate a global
+                    community of learners and professionals who are not only
+                    well-versed in legal theory but are also adept at applying
+                    their knowledge in practical, impactful ways.
+                  </p>
+                </div>
+              </div>
             </div>
           </div>
         </div>
@@ -1199,10 +1278,8 @@ const AboutUs = () => {
       <section className="py-20 bg-gradient-to-br from-red-500 to-red-600">
         <div className="container mx-auto px-6">
           <div className="max-w-4xl mx-auto text-center">
-            <h2
-              className={`text-4xl md:text-5xl font-bold text-white mb-6 ${playfairDisplay.className}`}
-            >
-              Ready to Transform Your Business?
+            <h2 className={"text-4xl md:text-5xl font-bold text-white mb-6"}>
+              Want to connect to us?
             </h2>
             <p className="text-red-100 text-xl mb-8 leading-relaxed">
               Join hundreds of successful companies who have partnered with us
@@ -1211,31 +1288,20 @@ const AboutUs = () => {
             </p>
 
             <div className="flex flex-col sm:flex-row gap-4 justify-center items-center">
-              <button className="bg-white text-red-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2">
+              <Link
+                href="/contact#contact-form"
+                className="bg-white text-red-600 hover:bg-gray-50 px-8 py-4 rounded-xl font-semibold transition-all duration-300 shadow-lg hover:shadow-xl hover:-translate-y-1 flex items-center gap-2"
+              >
                 <Users size={20} />
-                Schedule a Consultation
-              </button>
-              <button className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2">
-                <BookOpen size={20} />
-                View Our Portfolio
-              </button>
-            </div>
-
-            <div className="mt-12 pt-8 border-t border-red-400/30">
-              <div className="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
-                <div>
-                  <div className="text-3xl font-bold text-white mb-2">24/7</div>
-                  <div className="text-red-100 text-sm">Support Available</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-white mb-2">15+</div>
-                  <div className="text-red-100 text-sm">Years Experience</div>
-                </div>
-                <div>
-                  <div className="text-3xl font-bold text-white mb-2">500+</div>
-                  <div className="text-red-100 text-sm">Happy Clients</div>
-                </div>
-              </div>
+                Contact Us
+              </Link>
+              <Link
+                href="/services"
+                className="border-2 border-white text-white hover:bg-white hover:text-red-600 px-8 py-4 rounded-xl font-semibold transition-all duration-300 flex items-center gap-2"
+              >
+                <Cog size={20} />
+                Know about our services
+              </Link>
             </div>
           </div>
         </div>
@@ -1252,8 +1318,6 @@ const AboutUs = () => {
           className="group-hover:-translate-y-0.5 transition-transform duration-300"
         />
       </button>
-
-      <Footer />
     </div>
   );
 };

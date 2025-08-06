@@ -1,5 +1,5 @@
-import { ArticleHeroSection, Footer, Header, ScrollToTopBtn } from '@/components/global';
-import { ArticleContentSection, ExploreMoreSection, ArticleScrollProgress } from '@/components/local/articleDetails';
+import { ArticleHeroSection, ScrollToTopBtn } from '@/components/global';
+import { ArticleContentSection, ExploreMoreSection, ArticleScrollProgress } from '@/components/local/read-article';
 import { $crud } from '@/factory/crudFactory';
 
 type PageProps = {
@@ -14,8 +14,7 @@ const ArticleDetail = async ({ searchParams }: PageProps) => {
 
     try {
        const resolvedSearchParams = await searchParams;
-        // const id = resolvedSearchParams?.id;
-        const id = 80;
+        const id = resolvedSearchParams?.id;
         if (id) {
             const { data } = await $crud.get(`retrieve/web/article-by-id?id=${id}`);
             article = data;
@@ -51,7 +50,6 @@ const ArticleDetail = async ({ searchParams }: PageProps) => {
             <ArticleScrollProgress />
 
             {/* Header */}
-            <Header styles='relative'/>
 
             {/* Article Hero */}
             <ArticleHeroSection
@@ -68,11 +66,8 @@ const ArticleDetail = async ({ searchParams }: PageProps) => {
             {/* Footer CTA */}
             <ExploreMoreSection />
 
-            <Footer/>
             {/* Back to Top Button */}
             <ScrollToTopBtn />
-
-
         </div>
     );
 };

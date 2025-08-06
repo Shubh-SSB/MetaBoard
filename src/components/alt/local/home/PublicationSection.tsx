@@ -62,7 +62,7 @@ const PublicationSection: FC = () => {
                                 />
                                 <div className="absolute top-3 left-3">
                                     <Badge
-                                        variant={publication.status === 'New Release' ? 'default' : 'secondary'}
+                                        variant={'secondary'}
                                         className="glass text-xs"
                                     >
                                         {publication.status}
@@ -74,7 +74,7 @@ const PublicationSection: FC = () => {
                             <div className="flex-1 p-6">
                                 <div className="space-y-3">
                                     <div>
-                                        <Badge variant="outline" className="text-xs border-glass mb-2">
+                                        <Badge variant="outline" className="text-xs mb-2">
                                             {publication.type}
                                         </Badge>
                                         <h3 className="text-lg font-bold text-foreground group-hover:text-primary transition-colors">
@@ -106,7 +106,7 @@ const PublicationSection: FC = () => {
                                         </Button>
                                         <Button
                                             size="sm"
-                                            variant="outline"
+                                            variant="secondary"
                                             onClick={() => handleShare(publication)}
                                             className="border-glass"
                                         >

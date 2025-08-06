@@ -1,5 +1,5 @@
+import { type FC } from "react";
 import { Badge } from "@/components/ui";
-import { FC } from "react";
 import { Button } from "../ui";
 
 type HeroSectionTypes = {
@@ -23,18 +23,18 @@ const HeroSection: FC<HeroSectionTypes> = ({
     }
     return (<>
         <section className="relative py-20 overflow-hidden">
-            <div className="absolute inset-0">
+            {/* <div className="absolute inset-0">
                 <img
                     src={'/assets/images/hero-workspace.jpg'}
                     alt="Legal Technology Workspace"
                     className="w-full h-full object-cover opacity-20"
                 />
                 <div className="absolute inset-0 bg-gradient-to-r from-background via-background/80 to-transparent" />
-            </div>
+            </div> */}
 
-            <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div className="relative container px-4 sm:px-6 lg:px-8">
                 <div className="max-w-3xl">
-                    <div className="glass p-8 rounded-2xl">
+                    <div className="p-8 rounded-2xl">
                         <Badge className="mb-4 bg-primary text-primary-foreground">
                             {content[page].badgeText}
                         </Badge>

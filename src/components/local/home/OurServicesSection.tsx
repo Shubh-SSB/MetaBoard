@@ -9,6 +9,7 @@ import "swiper/css";
 import "swiper/css/navigation";
 import "swiper/css/pagination";
 import "../../../styles/swiper.css";
+import { Button } from "@/components/ui";
 
 const OurServicesSection = () => {
   const [expandedCards, setExpandedCards] = useState<number[]>([]);
@@ -140,7 +141,7 @@ const OurServicesSection = () => {
                       </div>
 
                       <div className="flex gap-3">
-                        <button className="flex-1 border border-red-600 text-red-600 hover:bg-primary hover:text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 glass-hover">
+                        <button className="flex-1 border border-red-600 text-red-600 hover:bg-primary hover:text-white px-4 py-2 rounded-lg font-medium transition-all duration-300">
                           Learn More
                         </button>
                         <button className="flex-1 bg-primary hover:bg-red-700 text-white px-4 py-2 rounded-lg font-medium transition-all duration-300 ripple-effect">
@@ -155,18 +156,18 @@ const OurServicesSection = () => {
 
             <div className="absolute -left-20 -right-20 flex justify-between ">
               <button
+                title="Previous Slide"
                 ref={prevBtnRef}
-                title="Previous slide"
-                aria-label="Previous slide"
+                // onClick={prevSlide}
                 className="z-20 -left-75 glass-hover bg-black/50 backdrop-blur-md text-white p-3 rounded-full border border-white/20 transition-colors transition-border duration-300 hover:border-red-600/50"
               >
                 <ChevronLeft size={24} />
               </button>
 
               <button
+                title="Next Slide"
                 ref={nextBtnRef}
-                title="Next slide"
-                aria-label="Next slide"
+                // onClick={nextSlide}
                 className="z-20 glass-hover bg-black/50 backdrop-blur-md text-white p-3 rounded-full border border-white/20 transition-colors transition-border duration-300 hover:border-red-600/50"
               >
                 <ChevronRight size={24} />

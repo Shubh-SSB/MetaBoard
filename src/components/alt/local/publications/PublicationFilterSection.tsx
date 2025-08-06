@@ -1,6 +1,6 @@
-import { Filter, Grid, List } from "lucide-react";
-import { FC } from "react";
-import { Badge, Button } from "../../ui";
+import { type FC } from "react";
+import { Filter } from "lucide-react";
+import { Badge } from "../../ui";
 
 
 type props = {
@@ -10,7 +10,6 @@ type props = {
 const PublicationFilterSection: FC<props> = ({
     totalPublications
 }) => {
-    console.log(totalPublications)
     return (<>
         <section className="mb-8">
             <div className="flex flex-col lg:flex-row lg:items-center justify-between gap-4 mb-6">

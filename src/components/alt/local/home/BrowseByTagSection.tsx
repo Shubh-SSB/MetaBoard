@@ -40,9 +40,9 @@ const BrowseByTagSection: FC = () => {
             <div className="flex items-center justify-between mb-6">
                 <div className="flex items-center gap-2">
                     <Filter className="w-5 h-5 text-primary" />
-                    <h3 className="text-lg font-semibold">Browse by Topic</h3>
+                    <h3 className="text-lg font-semibold text-foreground">Browse by Topic</h3>
                 </div>
-                {selectedTags.length > 0 && (
+                {/* {selectedTags.length > 0 && (
                     <Button
                         variant="ghost"
                         size="sm"
@@ -52,7 +52,7 @@ const BrowseByTagSection: FC = () => {
                         <X className="w-4 h-4 mr-1" />
                         Clear
                     </Button>
-                )}
+                )} */}
             </div>
 
             {/* Selected Tags */}
@@ -63,7 +63,7 @@ const BrowseByTagSection: FC = () => {
                         {selectedTags.map((tag) => (
                             <Badge
                                 key={tag}
-                                variant="default"
+                                variant="outline"
                                 className="cursor-pointer hover:bg-primary-hover"
                                 // onClick={() => toggleTag(tag)}
                             >
@@ -86,10 +86,11 @@ const BrowseByTagSection: FC = () => {
                             {category.tags.map((tag) => (
                                 <Badge
                                     key={tag}
-                                    variant={selectedTags.includes(tag) ? "default" : "secondary"}
+                                    // variant={selectedTags.includes(tag) ? "default" : "secondary"}
+                                    variant='outline'
                                     className={`cursor-pointer transition-all ${selectedTags.includes(tag)
                                             ? "bg-primary hover:bg-primary-hover"
-                                            : "glass hover:bg-glass-hover"
+                                            : "hover:bg-glass-hover"
                                         }`}
                                     // onClick={() => toggleTag(tag)}
                                 >

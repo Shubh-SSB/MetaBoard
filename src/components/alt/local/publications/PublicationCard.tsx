@@ -2,14 +2,12 @@ import { type FC } from "react";
 import { Calendar, Download, ExternalLink, Share2, User } from "lucide-react";
 import { Badge, Button, Card, DialogHeader } from "../../ui";
 import { Dialog, DialogContent, DialogTitle, DialogTrigger, } from '../../ui';
-import { BASE_ASSETS_URL } from "@/constants";
 import dayjs from "dayjs";
 import Link from "next/link";
 
 type props = {
-    data: PublicationInterface
+    data: PublicationInterface;
 }
-
 
 const PublicationCard: FC<props> = ({
     data
@@ -78,7 +76,7 @@ const PublicationCard: FC<props> = ({
                                 </DialogTrigger>
                                 <DialogContent className="max-w-5xl max-h-[90vh] overflow-y-auto bg-background/95 backdrop-blur-lg border-glass">
                                     <DialogHeader>
-                                        <DialogTitle className="text-2xl font-bold text-foreground">
+                                        <DialogTitle className=" font-bold text-foreground">
                                             {data.title}
                                         </DialogTitle>
                                     </DialogHeader>
@@ -139,7 +137,8 @@ const PublicationCard: FC<props> = ({
                                                 </div>
                                             </div>
                                             <div className="flex gap-4">
-                                                <Button variant="outline" className="border-glass">
+                                                
+                                                <Button variant="outline" className="border-glass ">
                                                     <Download className="w-4 h-4 mr-2" />
                                                     Sample Chapter
                                                 </Button>
@@ -153,7 +152,7 @@ const PublicationCard: FC<props> = ({
                                 </DialogContent>
                             </Dialog>
 
-                            <Button size="sm" variant="outline" className="border-glass">
+                            <Button size="sm" variant="outline" className="border-glass bg-black">
                                 <span className="font-semibold"> ₹ {data.price}</span>
                             </Button>
 
@@ -161,7 +160,7 @@ const PublicationCard: FC<props> = ({
                                 size="sm"
                                 variant="outline"
                                 // onClick={() => handleShare(publication)}
-                                className="border-glass"
+                                className="border-glass bg-black"
                             >
                                 <Share2 className="w-3 h-3" />
                             </Button>

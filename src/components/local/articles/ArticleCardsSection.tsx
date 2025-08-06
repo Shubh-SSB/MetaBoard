@@ -7,6 +7,7 @@ import Link from "next/link";
 import { $crud } from "@/factory/crudFactory";
 import { useSearchArticle } from "@/context/SearchArticleContext";
 import { Pagination } from "@/components/ui";
+import { Loader } from "@/components/global";
 
 
 type props = {
@@ -29,9 +30,7 @@ const ArticleCardsSection: FC<props> = ({ preloadedArticles, totalArticles, limi
     const { search, setData } = useSearchArticle();
 
     useEffect(() => {
-        // if (search) {
         retrieveArticles(0, search);
-        // }
     }, [search]);
 
 
@@ -47,10 +46,11 @@ const ArticleCardsSection: FC<props> = ({ preloadedArticles, totalArticles, limi
             if (search) {
                 setData(rows);
             }
-            setIsLoading(false);
             window.scrollTo({ top: 0, behavior: 'smooth' });
         } catch (e) {
             console.error(e);
+        }finally{
+            setIsLoading(false);
         }
     }, [search]);
 
@@ -64,13 +64,9 @@ const ArticleCardsSection: FC<props> = ({ preloadedArticles, totalArticles, limi
     }
     return (<>
         {/* <div className="md:col-span-2"> */}
-        {
-            isLoading &&
-            <div className="fixed top-0 left-0 w-screen h-screen flex items-center justify-center bg-gray-500 bg-opacity-40 backdrop-blur-[2px]  z-[999]">
-                <div className="spinner"></div>
-            </div>
-        }
-
+        <Loader
+            isVisible={isLoading}
+        />
         <div className="flex flex-col gap-10">
 
             {
@@ -81,7 +77,7 @@ const ArticleCardsSection: FC<props> = ({ preloadedArticles, totalArticles, limi
                                 key={index}
                                 className="bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-lg transition-all duration-300 glass-hover group cursor-pointer"
                             >
-                                <Link href={`/article-details/?id=${article.id}`} className="block">
+                                <Link href={`/read-article/?id=${article.id}`} className="block">
                                     <div className="md:flex">
                                         <div className="md:w-1/3">
                                             <img

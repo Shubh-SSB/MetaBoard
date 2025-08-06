@@ -1,6 +1,6 @@
 "use client";
 
-import { type FC } from "react";
+import { type FC, useEffect, useState } from "react";
 import { BASE_ASSETS_URL } from "@/constants";
 import dayjs from "dayjs";
 import {
@@ -12,6 +12,7 @@ import {
   Twitter,
 } from "lucide-react";
 import Link from "next/link";
+import { Button } from "../ui";
 
 type props = {
   data: any;
@@ -19,14 +20,43 @@ type props = {
 };
 
 const ArticleHeroSection: FC<props> = ({ data, showReadBtn }) => {
-  const onShare = () => {
-    const shareData = {
-      title: data.title,
-      text: data.description,
-      url: window.location.href,
-    };
-    if (navigator.canShare(shareData)) {
-      navigator.share(shareData);
+  const [imageError, setImageError] = useState(false);
+  const [imageLoaded, setImageLoaded] = useState(false);
+
+  const imageUrl = data?.coverImage
+    ? `${BASE_ASSETS_URL}/article-cover-images/${data.coverImage}`
+    : "/assets/images/default-article-bg.jpg"; // fallback image
+
+  useEffect(() => {
+    // Preload the image to check if it exists
+    const img = new Image();
+    img.onload = () => setImageLoaded(true);
+    img.onerror = () => setImageError(true);
+    img.src = imageUrl;
+  }, [imageUrl]);
+
+  const onShare = async () => {
+    try {
+      const shareData = {
+        title: data?.title || "Article",
+        text: data?.description || "Check out this article",
+        url: typeof window !== "undefined" ? window.location.href : "",
+      };
+
+      if (
+        typeof navigator !== "undefined" &&
+        navigator.canShare &&
+        navigator.canShare(shareData)
+      ) {
+        await navigator.share(shareData);
+      } else {
+        // Fallback - copy to clipboard
+        if (typeof navigator !== "undefined" && navigator.clipboard) {
+          await navigator.clipboard.writeText(shareData.url);
+        }
+      }
+    } catch (error) {
+      console.log("Share failed:", error);
     }
   };
 
@@ -34,10 +64,13 @@ const ArticleHeroSection: FC<props> = ({ data, showReadBtn }) => {
     <>
       <section className="relative overflow-hidden py-10 sm:py-20">
         <div
-          className="absolute inset-0 bg-cover bg-center"
-          style={{
-            backgroundImage: `url(${BASE_ASSETS_URL}/article-cover-images/${data?.coverImage})`,
-          }}
+          className="absolute inset-0 bg-cover bg-center bg-gray-900"
+          //   style={{
+          //     backgroundImage:
+          //       !imageError && imageLoaded
+          //         ? `url(${imageUrl})`
+          //         : "linear-gradient(135deg, #1f2937 0%, #374151 100%)",
+          //   }}
         >
           <div className="absolute inset-0 glass bg-black/50"></div>
         </div>
@@ -102,7 +135,7 @@ const ArticleHeroSection: FC<props> = ({ data, showReadBtn }) => {
             </div>
             {showReadBtn && (
               <Link
-                href={`/article-details?id=${data?.id}`}
+                href={`/read-article?id=${data?.id}`}
                 className="inline-block mt-8 bg-primary hover:bg-red-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 ripple-effect"
               >
                 Read Full Story

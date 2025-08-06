@@ -2,44 +2,21 @@
 
 import React from "react";
 import { FileText, Mail } from "lucide-react";
-import { Header, Footer } from "@/components/global";
+import { HeroSection, ScrollToTopBtn } from "@/components/global";
 import Link from "next/link";
 
 const TermsOfService = () => {
     return (
         <>
-            <Header />
             <div className="min-h-screen bg-gradient-to-br from-slate-50 via-red-50 to-rose-100">
                 {/* Hero Section */}
-                <section className="relative py-20 overflow-hidden">
-                    <div className="absolute inset-0 bg-gradient-to-r from-red-600/10 to-rose-600/10"></div>
-                    <div className="container mx-auto px-6 relative z-10">
-                        <div className="text-center max-w-4xl mx-auto">
-                            <div className="inline-flex items-center justify-center w-16 h-16 bg-red-100 rounded-full mb-6">
-                                <FileText className="w-8 h-8 text-red-600" />
-                            </div>
-                            <h1 className="text-5xl md:text-6xl text-gray-900 mb-6 ">
-                                Terms of
-                                <span className="bg-gradient-to-r from-red-600 to-rose-600 bg-clip-text text-transparent">
-                                    {" "}
-                                    Use
-                                </span>
-                            </h1>
-                            <p className="text-xl text-gray-600 mb-8 leading-relaxed">
-                                Please read these terms carefully before using our services. By
-                                accessing Metaboard®, you agree to be bound by these terms and
-                                conditions.
-                            </p>
-                            <div className="bg-white/80 backdrop-blur-sm rounded-lg p-6 border border-red-100">
-                                <p className="text-sm text-gray-700">
-                                    <span className="">Last Updated:</span> December 2024 |
-                                    <span className=""> Effective Date:</span> Immediately upon
-                                    publication
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </section>
+                <HeroSection
+                    RenderTopIcon={FileText}
+                    heading="Terms of"
+                    headingSpan="Use"
+                    description="Please read these terms carefully before using our services. By accessing Metaboard®, you agree to be bound by these terms and conditions."
+                    note="Last Updated: December 2024 | Effective Date: Immediately upon publication"
+                />
 
                 {/* Terms Content */}
                 <section className="py-20 bg-white/50">
@@ -396,19 +373,18 @@ const TermsOfService = () => {
                                     </p>
                                     <div className="flex flex-col sm:flex-row gap-4 justify-center">
                                         <Link
-                                            // href="mailto:info@metaboard.com"
                                             href="/contact"
                                             className="inline-flex items-center justify-center px-6 py-3 bg-white text-red-600 rounded-lg hover:bg-red-50 transition-colors duration-200"
                                         >
                                             <Mail className="w-5 h-5 mr-2" />
                                             Email Support
                                         </Link>
-                                        <a
+                                        <Link
                                             href="/aboutUs"
                                             className="inline-flex items-center justify-center px-6 py-3 bg-red-700 text-white rounded-lg hover:bg-red-800 transition-colors duration-200"
                                         >
                                             Learn About Us
-                                        </a>
+                                        </Link>
                                     </div>
                                 </div>
                             </div>
@@ -416,7 +392,7 @@ const TermsOfService = () => {
                     </div>
                 </section>
             </div>
-            <Footer />
+            <ScrollToTopBtn />
         </>
     );
 };

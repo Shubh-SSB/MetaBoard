@@ -7,6 +7,8 @@
 /* Import Inter font for clean typography */
 
 /* Metaboard Design System - Professional Black, Red, White */
+
+
 @layer base {
   :root {
     --background: 0 0% 100%;
@@ -103,7 +105,7 @@
   .glass {
     background: var(--glass-bg);
     backdrop-filter: blur(20px);
-    -webkit-backdrop-filter: blur(20px);
+    /* -webkit-backdrop-filter: blur(20px); */
     /* border: 1px solid var(--glass-border); */
     background-color: #ffffff26;
     box-shadow: var(--glass-shadow);
@@ -281,7 +283,6 @@
     conic-gradient(#0000 30%, #B20202);
   -webkit-mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
   animation: spinner-c7wet2 1s infinite linear;
-  mask: radial-gradient(farthest-side, #0000 calc(100% - 9px), #000 0);
 }
 
 @keyframes spinner-c7wet2 {
