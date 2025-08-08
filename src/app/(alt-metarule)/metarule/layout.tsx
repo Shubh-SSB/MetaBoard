@@ -1,13 +1,15 @@
+import { AltHeader } from "@/components/alt/global";
 import "../../../styles/metarule-css.css";
 
 export default function Layout({
-    children,
+  children,
 }: Readonly<{
-    children: React.ReactNode;
+  children: React.ReactNode;
 }>) {
-    return (
-        <div>
-        { children }
-        </div>
-    );
+  return (
+    <div>
+      {/* <AltHeader /> */}
+      {children}
+    </div>
+  );
 }

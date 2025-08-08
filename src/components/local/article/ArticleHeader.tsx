@@ -10,7 +10,7 @@ type props = {
   styles?: string;
 };
 
-const Header: FC<props> = ({ styles }) => {
+const ArticleHeader: FC<props> = ({ styles }) => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [expandedMobileItem, setExpandedMobileItem] = useState<string | null>(
@@ -325,4 +325,4 @@ const Header: FC<props> = ({ styles }) => {
   );
 };
 
-export default Header;
+export default ArticleHeader;

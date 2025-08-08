@@ -4,14 +4,14 @@ import React from "react";
 import {
   ArticleCardsSection,
   LatestHeadlinesSection,
-} from "@/components/local/articles";
+} from "@/components/local/article";
 import { $crud } from "@/factory/crudFactory";
 import {
   ArticleHeroSection as FeaturedArticle,
   ScrollToTopBtn,
   SearchBar,
 } from "@/components/global";
-import { Header } from "@/components/local/articles";
+import { Header } from "@/components/local/article";
 import { SearchArticleProvider } from "@/context/SearchArticleContext";
 
 const Articles = async () => {

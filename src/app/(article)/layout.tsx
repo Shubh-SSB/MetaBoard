@@ -1,5 +1,5 @@
 import React from "react";
-import { Header } from "@/components/local/articles";
+import ArticleHeader from "@/components/local/article/ArticleHeader";
 
 export default function ArticleLayout({
   children,
@@ -8,7 +8,7 @@ export default function ArticleLayout({
 }>) {
   return (
     <div>
-      <Header />
+      <ArticleHeader />
       {children}
     </div>
   );
